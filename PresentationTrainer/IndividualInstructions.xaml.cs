@@ -40,6 +40,7 @@ namespace PresentationTrainer
         public void startAnimation()
         {
             animationFinished = false;
+            stop = false;
 
             instructionLabel4.Visibility = Visibility.Collapsed;
             instructionLabel2.Visibility = Visibility.Collapsed;
@@ -58,7 +59,11 @@ namespace PresentationTrainer
             Storyboard animatingBreath = new Storyboard();
             animatingBreath.Children.Add(animationTakeBreathOpacity);
             animatingBreath.Completed += animatingBreath_Completed;
-            animatingBreath.Begin();
+            if(stop==false)
+            {
+                animatingBreath.Begin();
+            }
+            
 
 
         }
@@ -77,7 +82,12 @@ namespace PresentationTrainer
             Storyboard animatingThinkContent = new Storyboard();
             animatingThinkContent.Children.Add(animationThinkContentOpacity);
             animatingThinkContent.Completed += animatingThinkContent_Completed;
-            animatingThinkContent.Begin();
+            
+
+            if (stop == false)
+            {
+                animatingThinkContent.Begin();
+            }
         }
 
         void animatingThinkContent_Completed(object sender, EventArgs e)
@@ -94,7 +104,12 @@ namespace PresentationTrainer
             Storyboard animatingThinkSkill = new Storyboard();
             animatingThinkSkill.Children.Add(animationThinkSkillOpacity);
             animatingThinkSkill.Completed += animatingThinkSkill_Completed;
-            animatingThinkSkill.Begin();
+            
+            if (stop == false)
+            {
+                animatingThinkSkill.Begin();
+            }
+
         }
 
         void animatingThinkSkill_Completed(object sender, EventArgs e)

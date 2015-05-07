@@ -124,6 +124,7 @@ namespace PresentationTrainer
                         //updateLists
                         if (myJudgementMaker.mistakeList.Count > 0)
                         {
+
                             updateMistakeList();
                         }
                         else
@@ -221,7 +222,15 @@ namespace PresentationTrainer
                 }
                 if (isAlreadyThere == false)
                 {
-                    mistakes.Add(ba);
+                    if(ba.interrupt)
+                    {
+                        mistakes.Insert(0, ba);
+                    }
+                    else
+                    {
+                        mistakes.Add(ba);
+                    }
+                    
                 }
             }
         }
@@ -296,7 +305,7 @@ namespace PresentationTrainer
             ((PresentationAction)mistakes[0]).timeFinished = currentTime;
 
 
-            if (previousAction.myMistake != ((PresentationAction)mistakes[0]).myMistake)
+            if (previousAction.myMistake != ((PresentationAction)mistakes[0]).myMistake && ((PresentationAction)mistakes[0]).interrupt == false)
             {
                 if (((PresentationAction)mistakes[0]).myMistake == PresentationAction.MistakeType.HANDS_NOT_MOVING)
                 {
@@ -330,6 +339,13 @@ namespace PresentationTrainer
          //   myJudgementMaker.mistakeList = new ArrayList();
          //   myJudgementMaker.tempMistakeList = new ArrayList();
             // // myJudgementMaker.audioMovementMistakeTempList = new ArrayList();
+        }
+        public void resetAfterPause()
+        {
+            mistakes = new ArrayList();
+            previousAction.myMistake = PresentationAction.MistakeType.NOMISTAKE;
+            myJudgementMaker = new JudgementMaker(parent);
+            noInterrupt = true;
         }
         public void resetAfterInterruption()
         {

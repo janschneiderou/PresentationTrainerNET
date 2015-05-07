@@ -64,6 +64,9 @@
     <Compile Include="CountDown.xaml.cs">
       <DependentUpon>CountDown.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CountDownPause.xaml.cs">
+      <DependentUpon>CountDownPause.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EvidenceItem.xaml.cs">
       <DependentUpon>EvidenceItem.xaml</DependentUpon>
     </Compile>
@@ -99,6 +102,9 @@
       <DependentUpon>InterruptFeedback.xaml</DependentUpon>
     </Compile>
     <Compile Include="JudgementMaker.cs" />
+    <Compile Include="PauseControl.xaml.cs">
+      <DependentUpon>PauseControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PresentationAction.cs" />
     <Compile Include="PresentationEvent.cs" />
     <Compile Include="ReportFeedback.xaml.cs">
@@ -144,6 +150,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CountDown.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CountDownPause.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -214,6 +224,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PauseControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ReportFeedback.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -255,7 +269,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Background.jpg" />
+    <Resource Include="Images\Background.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="HandPointers\HighlightRectangle.png" />
@@ -311,26 +327,50 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\ic_audio-feedback-1.png" />
-    <Resource Include="Images\ic_audio-feedback-2.png" />
-    <Resource Include="Images\ic_audio-feedback-3.png" />
-    <Resource Include="Images\ic_audio-feedback-4.png" />
+    <Resource Include="Images\ic_audio-feedback-1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ic_audio-feedback-2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ic_audio-feedback-3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ic_audio-feedback-4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\ghost_hands.png" />
+    <Resource Include="Images\ghost_hands.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\ghost_lowerVolume.png" />
-    <Resource Include="Images\ghost_moduleVolume.png" />
-    <Resource Include="Images\ghost_pause.png" />
-    <Resource Include="Images\ghost_raiseVolume.png" />
-    <Resource Include="Images\ghost_startSpeaking.png" />
+    <Resource Include="Images\ghost_lowerVolume.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ghost_moduleVolume.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ghost_pause.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ghost_raiseVolume.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ghost_startSpeaking.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\thumbs_up.png" />
+    <Resource Include="Images\thumbs_up.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\check-mark-512.gif" />
+    <Resource Include="Images\check-mark-512.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\postureExample.png">
@@ -369,9 +409,15 @@
     <Content Include="Sounds\smw_pause.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Images\ic_freestyle.png" />
-    <Resource Include="Images\ic_stop.png" />
-    <Resource Include="Images\ic_tutorials.png" />
+    <Resource Include="Images\ic_freestyle.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ic_stop.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ic_tutorials.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Content Include="Sounds\smw_coin.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

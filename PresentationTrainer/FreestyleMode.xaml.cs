@@ -33,6 +33,7 @@ namespace PresentationTrainer
         public enum currentState { stop, play}
         public currentState myState;
         InterruptFeedback interruptFeedback;
+        PauseControl pauseControl;
         
         ReportFeedback reportFeedback;
 
@@ -114,7 +115,81 @@ namespace PresentationTrainer
             countdown.startAnimation();
             countdown.countdownFinished += countdown_countdownFinished;
 
+            countdownPause.countdownFinished += countdownPause_countdownFinished;
+
         }
+
+       
+
+        
+
+        #region Pauses&Stop
+
+
+        public void checkPause()
+        {
+            if(MainWindow.stopGesture==true && countdownPause.animationStarted==false)
+            {
+                countdownPause.startAnimation();
+            }
+        }
+
+        void countdownPause_countdownFinished(object sender)
+        {
+            myState = currentState.stop;
+            pauseControl = new PauseControl();
+            myCanvas.Children.Add(pauseControl);
+            Canvas.SetLeft(pauseControl, 20);
+            Canvas.SetTop(pauseControl, 20);
+            pauseControl.GoBackButton.Click+=GoBackButtonPause_Click;
+            pauseControl.GoMainMenu.Click+=GoMainMenu_Click;
+            
+
+        }
+
+        private void GoMainMenu_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.myState = MainWindow.States.menu;
+            try
+            {
+                
+
+            }
+            catch
+            {
+
+            }
+
+            parent.closeFreeStyleMode();
+            parent.loadMode();
+        }
+
+        private void GoBackButtonPause_Click(object sender, RoutedEventArgs e)
+        {
+
+
+            if (pauseControl != null)
+            {
+                pauseControl.GoBackButton.Click -= GoBackButtonPause_Click;
+                myCanvas.Children.Remove(pauseControl);
+                pauseControl = null;
+            }
+
+            // myState = currentState.play;
+              setGhostMovingInvisible();
+             setOldTextInvisible();
+             setGhostInvisible();
+             setFeedbackTextInvisible();
+        //    textFeedback.FeedbackIMG.Visibility = Visibility.Visible;
+
+            countdown.startAnimation();
+            parent.rulesAnalyzerFIFO.lastFeedbackTime = DateTime.Now.TimeOfDay.TotalMilliseconds;
+            parent.rulesAnalyzerFIFO.resetAfterPause();
+        }
+
+        
+
+        #endregion
 
         #region loadGhosts
 
@@ -379,6 +454,137 @@ namespace PresentationTrainer
 
         #endregion
 
+
+        #region haptics
+
+        public void doHapticStuff()
+        {
+            if (myState == PresentationTrainer.FreestyleMode.currentState.play)
+            {
+                if (MainWindow.hapticPort != null)
+                {
+                    if( areGhostVisibles())
+                    {
+                        negativeHapticFeedback();
+                    }
+                }
+            }
+        }
+
+        private bool areGhostVisibles()
+        {
+            bool result = false;
+
+            if(ghostDancing.Visibility==Visibility.Visible||
+                ghostHandMovement.Visibility==Visibility.Visible ||
+                ghostHighVolume.Visibility == Visibility.Visible||
+                ghostHmmm.Visibility == Visibility.Visible ||
+                ghostLowVolume.Visibility== Visibility.Visible||
+                ghostModuleVolume.Visibility == Visibility.Visible||
+                ghostPosture.Visibility== Visibility.Visible||
+                ghostStartSpeaking.Visibility== Visibility.Visible||
+                ghostStopSpeaking.Visibility== Visibility.Visible)
+            {
+                result = true;
+            }
+
+
+            return result;
+        }
+
+        private void negativeHapticFeedback()
+        {
+            MainWindow.hapticPort.Open();
+
+
+            byte[] buffer = new byte[6];
+            buffer[0] = Convert.ToByte('R');
+            buffer[1] = Convert.ToByte('_');
+            buffer[2] = Convert.ToByte(255);
+            buffer[3] = Convert.ToByte(0);
+            buffer[4] = Convert.ToByte(0);
+            buffer[5] = Convert.ToByte(13);
+
+            MainWindow.hapticPort.Write(buffer, 0, 6);
+
+
+            //  myPort.Write(array, 0, 13);
+            MainWindow.hapticPort.Close();
+
+
+            MainWindow.hapticPort.Open();
+           
+
+
+            byte[] bufferH = new byte[5];
+            bufferH[0] = Convert.ToByte('V');
+            bufferH[1] = Convert.ToByte('_');
+            bufferH[2] = Convert.ToByte(5);
+            bufferH[3] = Convert.ToByte(10);
+            bufferH[4] = Convert.ToByte(13);
+
+            MainWindow.hapticPort.Write(bufferH, 0, 5);
+            MainWindow.hapticPort.Close();
+
+        }
+
+       private void doHapticInterruption()
+       {
+           MainWindow.hapticPort.Open();
+
+
+           byte[] buffer = new byte[6];
+           buffer[0] = Convert.ToByte('R');
+           buffer[1] = Convert.ToByte('_');
+           buffer[2] = Convert.ToByte(255);
+           buffer[3] = Convert.ToByte(0);
+           buffer[4] = Convert.ToByte(0);
+           buffer[5] = Convert.ToByte(13);
+
+           MainWindow.hapticPort.Write(buffer, 0, 6);
+
+
+           //  myPort.Write(array, 0, 13);
+           MainWindow.hapticPort.Close();
+
+
+           MainWindow.hapticPort.Open();
+
+
+
+           byte[] bufferH = new byte[5];
+           bufferH[0] = Convert.ToByte('V');
+           bufferH[1] = Convert.ToByte('_');
+           bufferH[2] = Convert.ToByte(10);
+           bufferH[3] = Convert.ToByte(10);
+           bufferH[4] = Convert.ToByte(13);
+
+           MainWindow.hapticPort.Write(bufferH, 0, 5);
+           MainWindow.hapticPort.Close();
+       }
+
+        private void positiveHapticFeedback()
+        {
+            MainWindow.hapticPort.Open();
+
+
+            byte[] buffer = new byte[6];
+            buffer[0] = Convert.ToByte('R');
+            buffer[1] = Convert.ToByte('_');
+            buffer[2] = Convert.ToByte(0);
+            buffer[3] = Convert.ToByte(255);
+            buffer[4] = Convert.ToByte(0);
+            buffer[5] = Convert.ToByte(13);
+
+            MainWindow.hapticPort.Write(buffer, 0, 6);
+
+
+            //  myPort.Write(array, 0, 13);
+            MainWindow.hapticPort.Close();
+        }
+
+        #endregion
+
         #region corrections
 
         void rulesAnalyzerFIFO_correctionEvent(object sender, PresentationAction x)
@@ -392,8 +598,18 @@ namespace PresentationTrainer
             textFeedback.FeedbackIMG.Source = new BitmapImage(uriSource);
             textFeedback.FeedbackIMG.Visibility = Visibility.Visible;
 
+            if(MainWindow.hapticPort!=null)
+            {
+                positiveHapticFeedback();
+            }
+
 
         }
+
+
+
+
+    
 
         private void handleCorrection(PresentationAction x)
         {
@@ -586,6 +802,7 @@ namespace PresentationTrainer
 
         void rulesAnalyzerFIFO_feedBackEvent(object sender, PresentationAction x)
         {
+           
             ghost.hideFeedback();
             switch (x.myMistake)
             {
@@ -628,7 +845,11 @@ namespace PresentationTrainer
                     hmmmFeedback();
                     break;
             }
-
+           // doHapticStuff();
+            if (MainWindow.hapticPort != null)
+            {
+                negativeHapticFeedback();
+            }
 
         }
 
@@ -724,6 +945,7 @@ namespace PresentationTrainer
         {
             float factor = 345.45f;
             float displacement = 373;
+            
             float xHead = parent.bodyFrameHandler.bodyFramePreAnalysis.body.Joints[JointType.Head].Position.X;
             float leftPositionGhost = factor * xHead + displacement;
             Canvas.SetLeft(ghostLowVolume, factor * xHead + displacement);
@@ -854,6 +1076,11 @@ namespace PresentationTrainer
         void rulesAnalyzerFIFO_myInterruptionEvent(object sender, PresentationAction[] x)
         {
             loadInterruption(x);
+            if(MainWindow.hapticPort!=null)
+            {
+                doHapticInterruption();
+            }
+            
         }
 
         public void loadInterruption(PresentationAction[] x)
@@ -880,13 +1107,21 @@ namespace PresentationTrainer
             
             parent.loadIndividualSkills(pa);
 
-            myCanvas.Children.Remove(interruptFeedback);
-            interruptFeedback = null;
-            // myState = currentState.play;
-            setGhostMovingInvisible();
-            setOldTextInvisible();
-            setGhostInvisible();
-            setFeedbackTextInvisible();
+            try
+            {
+                myCanvas.Children.Remove(interruptFeedback);
+                interruptFeedback = null;
+                // myState = currentState.play;
+                setGhostMovingInvisible();
+                setOldTextInvisible();
+                setGhostInvisible();
+                setFeedbackTextInvisible();
+            }
+            catch
+            {
+                
+            }
+            
         }
 
         public void OrdinaryReturn_Click(object sender, RoutedEventArgs e)
@@ -910,6 +1145,7 @@ namespace PresentationTrainer
             setFeedbackTextInvisible();
             textFeedback.FeedbackIMG.Visibility = Visibility.Visible;
 
+            countdownPause.animationStarted = false;
             countdown.startAnimation();
             parent.rulesAnalyzerFIFO.lastFeedbackTime = DateTime.Now.TimeOfDay.TotalMilliseconds;
             parent.rulesAnalyzerFIFO.resetAfterInterruption();

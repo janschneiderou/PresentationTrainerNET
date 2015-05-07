@@ -26,7 +26,9 @@ namespace PresentationTrainer
 
         public double ThresholdDefaultHandMovement = 1000;
         public double HandMovementFactor = 3770;
-        public double bufferTime = 400; 
+        public double bufferTime = 400;
+
+     //   public bool periodicMov = false;
 
         public int[] nolongerBodyErrors;
 
@@ -76,6 +78,8 @@ namespace PresentationTrainer
             searchMistakes();
 
             saveCurrentBodyAsOldBody();
+
+            
         }
 
         private void searchMistakes()
@@ -93,8 +97,11 @@ namespace PresentationTrainer
                 if (periodicMovements.checPeriodicMovements(bfpa.body))
                 {
                     PresentationAction pa = new PresentationAction(PresentationAction.MistakeType.DANCING);
+                    pa.interrupt = true;
+                   // periodicMov = true;
                     mistakeList.Insert(0, pa);
                 }
+
             }
            
             
@@ -218,6 +225,7 @@ namespace PresentationTrainer
         {
             audioMovementMistakeTempList = new ArrayList();
             handleHmmm();
+           
 
             if (myVoiceAndMovementObject.timeStarted == 0)
             {
@@ -245,8 +253,11 @@ namespace PresentationTrainer
 
         }
 
+      
+
         #endregion
 
+      
        
 
         private void handleHmmm()

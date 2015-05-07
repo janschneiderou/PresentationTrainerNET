@@ -57,6 +57,42 @@ namespace PresentationTrainer
         public float ThresholdMovingTime = 1000; //TODO
         public float ThresholdIsMovingDistance = 0.035f; //TODO
 
+
+        public double angleRightForearmRightArmA;
+        public double angleRightForearmRightArmB;
+        public double angleRightForearmRightArmG;
+
+        
+
+        public double prevAngleRightForearmRightArmA;
+        public double prevAngleRightForearmRightArmB;
+        public double prevAngleRightForearmRightArmG;
+
+
+        public double angleRightArmShoulderLineA;
+        public double angleRightArmShoulderLineB;
+        public double angleRightArmShoulderLineG;
+
+        public double prevAngleRightArmShoulderLineA;
+        public double prevAngleRightArmShoulderLineB;
+        public double prevAngleRightArmShoulderLineG;
+
+        public double angleLeftForearmLeftArmA;
+        public double angleLeftForearmLeftArmB;
+        public double angleLeftForearmLeftArmG;
+
+        public double prevAngleLeftForearmLeftArmA;
+        public double prevAngleLeftForearmLeftArmB;
+        public double prevAngleLeftForearmLeftArmG;
+
+        public double angleLeftArmShoulderLineA;
+        public double angleLeftArmShoulderLineB;
+        public double angleLeftArmShoulderLineG;
+
+        public double prevAngleLeftArmShoulderLineA;
+        public double prevAngleLeftArmShoulderLineB;
+        public double prevAngleLeftArmShoulderLineG;
+
         public BodyFramePreAnalysis(Body body)
         {
             this.body = body;
@@ -98,6 +134,50 @@ namespace PresentationTrainer
 
         }
       
+        public void getbigGesture()
+        {
+
+        }
+
+        public void getArmsAngles()
+        {
+            double forearmLineX=  body.Joints[JointType.WristRight].Position.X - body.Joints[JointType.ElbowRight].Position.X;
+            double forearmLineZ =  body.Joints[JointType.WristRight].Position.Z - body.Joints[JointType.ElbowRight].Position.Z;
+            double forearmLineY =  body.Joints[JointType.WristRight].Position.Y - body.Joints[JointType.ElbowRight].Position.Y;
+
+            angleRightForearmRightArmA = Math.Atan(forearmLineY /
+                (Math.Sqrt(forearmLineX * forearmLineX + forearmLineZ * forearmLineZ)) * 180 / Math.PI);
+            angleRightForearmRightArmB = Math.Atan(forearmLineX / forearmLineZ) / Math.PI * 180;
+
+
+            forearmLineX = body.Joints[JointType.WristLeft].Position.X - body.Joints[JointType.ElbowLeft].Position.X;
+            forearmLineZ = body.Joints[JointType.WristLeft].Position.Z - body.Joints[JointType.ElbowLeft].Position.Z;
+            forearmLineY = body.Joints[JointType.WristLeft].Position.Y - body.Joints[JointType.ElbowLeft].Position.Y;
+
+            angleLeftForearmLeftArmA = Math.Atan(forearmLineY /
+                (Math.Sqrt(forearmLineX * forearmLineX + forearmLineZ * forearmLineZ)) * 180 / Math.PI);
+            angleLeftForearmLeftArmB = Math.Atan(forearmLineX /
+                Math.Sqrt(forearmLineY*forearmLineY+ forearmLineZ*forearmLineZ)) / Math.PI * 180; ;
+
+            double armLineX = body.Joints[JointType.ElbowRight].Position.X - body.Joints[JointType.ShoulderRight].Position.X;
+            double armLineZ = body.Joints[JointType.ElbowRight].Position.Z - body.Joints[JointType.ShoulderRight].Position.Z;
+            double armLineY = body.Joints[JointType.ElbowRight].Position.Y - body.Joints[JointType.ShoulderRight].Position.Y;
+            
+            angleRightArmShoulderLineA = Math.Atan(armLineX/
+                Math.Sqrt(armLineZ*armLineZ+armLineY*armLineY))/Math.PI*180;
+            angleRightArmShoulderLineB = Math.Atan(armLineZ/
+                Math.Sqrt(armLineY*armLineY+armLineX*armLineX))/Math.PI*180;
+
+            armLineX = body.Joints[JointType.ElbowLeft].Position.X - body.Joints[JointType.ShoulderLeft].Position.X;
+            armLineZ = body.Joints[JointType.ElbowLeft].Position.Z - body.Joints[JointType.ShoulderLeft].Position.Z;
+            armLineY = body.Joints[JointType.ElbowLeft].Position.Y - body.Joints[JointType.ShoulderLeft].Position.Y;
+
+            angleLeftArmShoulderLineA = Math.Atan(armLineX /
+                Math.Sqrt(armLineZ * armLineZ + armLineY * armLineY)) / Math.PI * 180;
+            angleLeftArmShoulderLineA = Math.Atan(armLineZ /
+                Math.Sqrt(armLineY * armLineY + armLineX * armLineX)) / Math.PI * 180;
+        }
+
         public void analyzePosture()
         {
             currentMistakes = new ArrayList();
@@ -117,8 +197,24 @@ namespace PresentationTrainer
             getResetPosture();
 
             calcMovingHands();
+            getArmsAngles();
+            searchPause();
         //    calcIsMovingArms();
            
+        }
+
+        private void searchPause()
+        {
+            if (body.Joints[JointType.HandRight].Position.Y  > body.Joints[JointType.Head].Position.Y
+                && body.Joints[JointType.HandLeft].Position.Y > body.Joints[JointType.Head].Position.Y)
+            {
+                MainWindow.stopGesture = true;
+            }
+            else
+            {
+                MainWindow.stopGesture = false;
+            }
+
         }
       
       

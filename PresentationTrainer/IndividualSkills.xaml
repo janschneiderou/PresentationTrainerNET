@@ -9,10 +9,10 @@
              >
     <Grid>
         <Canvas Name="myCanvas" Margin="0,0,0,0">
-            <local:IndividualSkillsIntroduction x:Name="introduction" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+       <!--    <local:IndividualSkillsIntroduction x:Name="introduction" HorizontalAlignment="Left"  VerticalAlignment="Top"/> 
 
-            <local:IndividualInstructions x:Name="individualInstructions" HorizontalAlignment="Left" Margin="10,55,-10,0" VerticalAlignment="Top" Visibility="Collapsed"/>
-            <local:IndividualFinish x:Name="finish" Visibility="Collapsed" />
+           <local:IndividualInstructions x:Name="individualInstructions" HorizontalAlignment="Left" Margin="10,55,-10,0" VerticalAlignment="Top" Visibility="Collapsed"/> 
+           <local:IndividualFinish x:Name="finish" Visibility="Collapsed" />   -->
             <Label Name="CadenceCounter"  Content="0" Foreground="White" FontSize="45" Canvas.Left="920" Canvas.Top="106" RenderTransformOrigin="1.365,0.492" Visibility="Collapsed"/>
         </Canvas>
     </Grid>

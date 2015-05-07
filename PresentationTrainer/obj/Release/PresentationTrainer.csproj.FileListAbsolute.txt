@@ -344,6 +344,69 @@ C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainer February 
 C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainer February 2015\PresentationTrainer\obj\Release\IndividualSkillsIntroduction.g.cs
 C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainer February 2015\PresentationTrainer\obj\Release\IndividualInstructions.baml
 C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainer February 2015\PresentationTrainer\obj\Release\IndividualInstructions.g.cs
-C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainer February 2015\PresentationTrainer\obj\Release\PresentationTrainer.csprojResolveAssemblyReference.cache
 C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainer February 2015\PresentationTrainer\obj\Release\IndividualFinish.baml
 C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainer February 2015\PresentationTrainer\obj\Release\IndividualFinish.g.cs
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainer February 2015\PresentationTrainer\obj\Release\PresentationTrainer.csprojResolveAssemblyReference.cache
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\bin\Release\PresentationTrainer.exe.config
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\PresentationTrainer.exe
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\PresentationTrainer.pdb
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\bin\Release\Sounds\smw_pause.wav
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\bin\Release\Sounds\smw_coin.wav
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\bin\Release\PresentationTrainer.exe
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\bin\Release\PresentationTrainer.pdb
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\bin\Release\Microsoft.Kinect.dll
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\bin\Release\Microsoft.Kinect.Wpf.Controls.dll
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\bin\Release\Microsoft.Kinect.xml
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\bin\Release\Microsoft.Kinect.Wpf.Controls.xml
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\PresentationTrainer.csprojResolveAssemblyReference.cache
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\AudioMirror.baml
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\BodyMirror.baml
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\CountDown.baml
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\EvidenceItem.baml
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\FreestyleOldText.baml
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\FreestyleTextFeedback.baml
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\Ghost.baml
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\GhostMoving.baml
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\HandPointers\HandPointerStyles.baml
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\IndividualFinish.baml
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\IndividualInstructions.baml
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\IndividualSkillsIntroduction.baml
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\MainMenu.baml
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\MainWindow.baml
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\ReportFeedback.baml
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\SkeletonTraker.baml
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\AudioMirror.g.cs
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\BodyMirror.g.cs
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\CountDown.g.cs
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\EvidenceItem.g.cs
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\FreestyleMode.g.cs
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\FreestyleOldText.g.cs
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\FreestyleTextFeedback.g.cs
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\Ghost.g.cs
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\GhostMoving.g.cs
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\IndividualFinish.g.cs
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\IndividualInstructions.g.cs
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\IndividualSkills.g.cs
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\IndividualSkillsIntroduction.g.cs
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\InterruptFeedback.g.cs
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\MainMenu.g.cs
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\MainWindow.g.cs
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\ReportFeedback.g.cs
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\SkeletonTraker.g.cs
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\VoiceCalibration.g.cs
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\App.g.cs
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\PresentationTrainer_Content.g.cs
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\PresentationTrainer_MarkupCompile.cache
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\PresentationTrainer_MarkupCompile.lref
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\FreestyleMode.baml
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\IndividualSkills.baml
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\InterruptFeedback.baml
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\VoiceCalibration.baml
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\PresentationTrainer.g.resources
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\PresentationTrainer.Properties.Resources.resources
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\PresentationTrainer.csproj.GenerateResource.Cache
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\CountDownPause.baml
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\CountDownPause.g.cs
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\PauseControl.baml
+C:\Users\jan\Documents\Visual Studio 2013\Projects\PresentationTrainerGithub\PresentationTrainerNET\PresentationTrainer\obj\Release\PauseControl.g.cs

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Kinect;
+using System.IO.Ports;
 
 namespace PresentationTrainer
 {
@@ -27,6 +28,9 @@ namespace PresentationTrainer
         public MainMenu mainMenu;
         public enum States { menu, freestyle, volumeCalibration, individual};
         public static States myState;
+
+        public static SerialPort hapticPort;
+        public static bool stopGesture = false;
 
         private KinectSensor kinectSensor;
         public InfraredFrameReader frameReader = null;
@@ -54,6 +58,23 @@ namespace PresentationTrainer
             videoHandler = new VideoHandler(this.kinectSensor);
             audioHandler = new AudioHandler(this.kinectSensor);
             bodyFrameHandler = new BodyFrameHandler(this.kinectSensor);
+
+            initializeHaptic();
+        }
+
+        private void initializeHaptic()
+        {
+            try
+            {
+                string[] ports = SerialPort.GetPortNames();
+                foreach (string port in ports)
+                {
+                    hapticPort = new SerialPort(port, 9600);
+                }
+            }
+            catch (Exception e)
+            {
+            }
         }
 
         #region controlStuff
@@ -226,9 +247,10 @@ namespace PresentationTrainer
             // we might have to unsubscribe (-=) to the click event of the pressed button
         }
 
-        private void closeFreeStyleMode()
+        public void closeFreeStyleMode()
         {
             MainCanvas.Children.Remove(freestyleMode);
+            freestyleMode = null;
         }
 
         public void closeMainMenu()
@@ -257,6 +279,7 @@ namespace PresentationTrainer
             {
                 case States.freestyle:
                     rulesAnalyzerFIFO.AnalyseRules();
+                    freestyleMode.checkPause();
                     break;
                 case States.individual:
                     if(individualSkills.ready)

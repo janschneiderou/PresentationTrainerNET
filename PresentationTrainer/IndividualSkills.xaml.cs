@@ -50,6 +50,10 @@ namespace PresentationTrainer
         FreestyleTextFeedback ghostTF;
         FreestyleOldText ghostOT;
 
+        public IndividualSkillsIntroduction introduction;
+        public IndividualInstructions individualInstructions;
+        public IndividualFinish finish;
+
         double actionTime;
 
         public IndividualSkills( PresentationAction pa)
@@ -57,23 +61,58 @@ namespace PresentationTrainer
             myPresentationAction = pa;
             InitializeComponent();
             currentInstruction = myPresentationAction.myMistake;
+            introduction = new IndividualSkillsIntroduction();
+            individualInstructions = new IndividualInstructions();
+            finish = new IndividualFinish();
             Loaded += IndividualSkills_Loaded;
         }
 
         void IndividualSkills_Loaded(object sender, RoutedEventArgs e)
         {
-            introduction.startButton.Click += startButton_Click;
-            finish.GoToExercises.Click += GoToExercises_Click;
+
             loadGhosts();
             selectTypeOfIstruction();
+            myCanvas.Children.Add(introduction);
+            introduction.Loaded += introduction_Loaded;
            
+    
+           
+        }
+
+        void finish_Loaded(object sender, RoutedEventArgs e)
+        {
+            finish.GoToExercises.Click += GoToExercises_Click;
+            finish.Visibility = Visibility.Collapsed;
+        }
+
+        void introduction_Loaded(object sender, RoutedEventArgs e)
+        {
+            introduction.startButton.Click += startButton_Click;
+        }
+
+        void startButton_Click(object sender, RoutedEventArgs e)
+        {
+            StartedTime = DateTime.Now.TimeOfDay.TotalMilliseconds;
+            introduction.Visibility = Visibility.Collapsed;
+            myCanvas.Children.Add(individualInstructions);
+            myCanvas.Children.Add(finish);
+            individualInstructions.Loaded += individualInstructions_Loaded;
+            finish.Loaded += finish_Loaded;
+        }
+
+        void individualInstructions_Loaded(object sender, RoutedEventArgs e)
+        {
+            StartedTime = DateTime.Now.TimeOfDay.TotalMilliseconds;
+            ready = true;
         }
 
         void GoToExercises_Click(object sender, RoutedEventArgs e)
         {
-            StartedTime = DateTime.Now.TimeOfDay.TotalMilliseconds;
-            finish.Visibility = Visibility.Collapsed;
+           StartedTime = DateTime.Now.TimeOfDay.TotalMilliseconds;
+           finish.Visibility = Visibility.Collapsed;
+        
             ready = true;
+ 
         }
 
         #region loadingStuff
@@ -320,12 +359,7 @@ namespace PresentationTrainer
             individualTracker = new IndividualPosture(parent);
         }
 
-        void startButton_Click(object sender, RoutedEventArgs e)
-        {
-            StartedTime = DateTime.Now.TimeOfDay.TotalMilliseconds;
-            myCanvas.Children.Remove(introduction);
-            ready = true;
-        }
+       
         #endregion
 
 

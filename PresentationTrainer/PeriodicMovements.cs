@@ -49,6 +49,8 @@ namespace PresentationTrainer
       int currentCycleX = 0;
       int currentCycleY = 0;
       int currentCycleZ = 0;
+
+      public bool result=false;
      
        public PeriodicMovements()
        {
@@ -70,10 +72,10 @@ namespace PresentationTrainer
        }
        public bool checPeriodicMovements(Body newBody)
        {
-           bool result=false;
+           
 
            time = DateTime.Now- startTime;
-           if(time.TotalMilliseconds>=6000)
+           if(time.TotalMilliseconds>=4000)
            {
                result = checkAnalisys();
                resetValues();
@@ -136,7 +138,7 @@ namespace PresentationTrainer
                }
                averageDistance = averageDistance / countX;
 
-               if(averageDistance>minMovementThreshold && countX>4)  
+               if(averageDistance>minMovementThreshold && countX>2)  
                    //&& 
                    //averageDistanceDiference<averageDistanceDiferenceThreshold
                    //)
@@ -157,7 +159,7 @@ namespace PresentationTrainer
                }
                averageDistance = averageDistance / countY;
 
-               if (averageDistance > minMovementThreshold && countY > 4)
+               if (averageDistance > minMovementThreshold && countY >3)
                {
        //            result = true;
                }
@@ -174,7 +176,7 @@ namespace PresentationTrainer
                }
                averageDistance = averageDistance / countZ;
 
-               if (averageDistance > minMovementThreshold && countZ >= 4)
+               if (averageDistance > minMovementThreshold && countZ >= 2)
                {
                    result = true;
                    fired = "Z " + countZ + " "+ averageDistance;
